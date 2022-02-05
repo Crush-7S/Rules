@@ -1,0 +1,333 @@
+mixed-port: 7890
+allow-lan: false
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+hosts:
+  'mtalk.google.com': 108.177.125.188
+  'dl.google.com': 180.163.151.161
+  'dl.l.google.com': 180.163.151.161
+dns:
+  enable: false
+  listen: 0.0.0.0:53
+  default-nameserver:
+  - 119.29.29.29
+  enhanced-mode: redir-host
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - localhost.ptlogin2.qq.com
+  - '+.srv.nintendo.net'
+  - '+.stun.playstation.net'
+  - '+.msftconnecttest.com'
+  - '+.msftncsi.com'
+  - '+.xboxlive.com'
+  - 'msftconnecttest.com'
+  - 'xbox.*.microsoft.com'
+  - '*.battlenet.com.cn'
+  - '*.battlenet.com'
+  - '*.blzstatic.cn'
+  - '*.battle.net'
+  nameserver:
+  - 119.29.29.29
+proxies:
+proxy-providers:
+  ☘️Auto:
+    type: http
+    url: "https://dove.589669.xyz/all2clash?&sub=https://gist.githubusercontent.com/Crush-7S/8a553f848622384d7b4b06a21abbdee9/raw/Clash&filter=(%3F%3D.*(%E6%B8%AF%7CHK%7C(%3Fi)Hong))&emoji=-1&sort=0"
+    interval: 3600
+    path: ./Proxy/HKList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  🇭🇰HK:
+    type: http
+    url: "https://dove.589669.xyz/all2clash?&sub=https://gist.githubusercontent.com/Crush-7S/8a553f848622384d7b4b06a21abbdee9/raw/Clash&filter=(%3F%3D.*(%E6%B8%AF%7CHK%7C(%3Fi)Hong))&emoji=-1&sort=0"
+    interval: 3600
+    path: ./Proxy/HKList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  🇨🇳TW:
+    type: http
+    url: "https://dove.589669.xyz/all2clash?&sub=https://gist.githubusercontent.com/Crush-7S/8a553f848622384d7b4b06a21abbdee9/raw/Clash&filter=(%3F%3D.*(%E5%8F%B0%7CTW%7C(%3Fi)Taiwan))&emoji=-1&sort=0"
+    interval: 3600
+    path: ./Proxy/TWList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  🇸🇬SG:
+    type: http
+    url: "https://dove.589669.xyz/all2clash?&sub=https://gist.githubusercontent.com/Crush-7S/8a553f848622384d7b4b06a21abbdee9/raw/Clash&filter=(%3F%3D.*(%E6%96%B0%7C%E7%8B%AE%7C%E7%8D%85%7CSG%7C(%3Fi)Singapore))&emoji=-1&sort=0"
+    interval: 3600
+    path: ./Proxy/SGList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  🇯🇵JP:
+    type: http
+    url: "https://dove.589669.xyz/all2clash?&sub=https://gist.githubusercontent.com/Crush-7S/8a553f848622384d7b4b06a21abbdee9/raw/Clash&filter=(%3F%3D.*(%E6%97%A5%7CJP%7C(%3Fi)Japan))&emoji=-1&sort=0"
+    interval: 3600
+    path: ./Proxy/JPList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  🇺🇸US:
+    type: http
+    url: "https://dove.589669.xyz/all2clash?&sub=https://gist.githubusercontent.com/Crush-7S/8a553f848622384d7b4b06a21abbdee9/raw/Clash&filter=(%3F%3D.*(%E7%BE%8E%7CUS%7C(%3Fi)States%7CAmerican))&emoji=-1&sort=0"
+    interval: 3600
+    path: ./Proxy/USList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+proxy-groups:
+- name: "🌵Final"
+  type: select
+  proxies:
+  - 🐷Proxy
+  - DIRECT
+- name: 🐷Proxy
+  type: select
+  proxies:
+  - 🇭🇰HK
+  - 🇨🇳TW
+  - 🇸🇬SG
+  - 🇯🇵JP
+  - 🇺🇸US
+- name: "☘️Auto"
+  type: url-test
+  use:
+  - 🇭🇰HK
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 7200
+- name: "🎵Tiktok"
+  type: select
+  proxies:
+  - 🇭🇰HK
+  - 🇨🇳TW
+  - 🇸🇬SG
+  - 🇯🇵JP
+  - 🇺🇸US
+- name: "🖥Netflix"
+  type: select
+  proxies:
+  - 🇭🇰HK
+  - 🇨🇳TW
+  - 🇸🇬SG
+  - 🇯🇵JP
+  - 🇺🇸US
+- name: "🎆Disney"
+  type: select
+  proxies:
+  - 🇭🇰HK
+  - 🇨🇳TW
+  - 🇸🇬SG
+  - 🇯🇵JP
+  - 🇺🇸US
+- name: "📺Youtube"
+  type: select
+  proxies:
+  - 🇭🇰HK
+  - 🇨🇳TW
+  - 🇸🇬SG
+  - 🇯🇵JP
+  - 🇺🇸US
+- name: "📞Telegram"
+  type: select
+  proxies:
+  - ☘️Auto
+- name: "🇭🇰HK"
+  type: url-test
+  use:
+  - 🇭🇰HK
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 7200
+- name: "🇨🇳TW"
+  type: url-test
+  use:
+  - 🇨🇳TW
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 7200
+- name: "🇸🇬SG"
+  type: url-test
+  use:
+  - 🇸🇬SG
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 7200
+- name: "🇯🇵JP"
+  type: url-test
+  use:
+  - 🇯🇵JP
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 7200
+- name: "🇺🇸US"
+  type: url-test
+  use:
+  - 🇺🇸US
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 7200
+- name: "🍎Apple"
+  type: select
+  proxies:
+  - 🐷Proxy
+  - DIRECT
+- name: "✈️Speedtest"
+  type: select
+  proxies:
+  - 🐷Proxy
+  - DIRECT
+rule-providers:
+  Unbreak:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Unbreak.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Unbreak.yaml
+    interval: 86400
+  Advertising:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Guard/Advertising.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Advertising.yaml
+    interval: 86400
+  Hijacking:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Guard/Hijacking.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Hijacking.yaml
+    interval: 86400
+  Privacy:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Guard/Privacy.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Privacy.yaml
+    interval: 86400
+  Tiktok:
+    type: http
+    behavior: classical
+    path: ./Clash/TikTok/TikTok.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/TikTok/TikTok.yaml
+    interval: 86400
+  Netflix:
+    type: http
+    behavior: classical
+    path: ./Clash/Netflix/Netflix.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Netflix/Netflix.yaml
+    interval: 86400
+  Disney:
+    type: http
+    behavior: classical
+    path: ./Clash/Disney/Disney.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Disney/Disney.yaml
+    interval: 86400
+  Youtube:
+    type: http
+    behavior: classical
+    path: ./Clash/YouTube/YouTube.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
+    interval: 86400
+  Paypal:
+    type: http
+    behavior: classical
+    path: ./Clash/PayPal/PayPal.yaml
+    url: https://raw.githuhttps://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/Telegram/Telegram.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master//Clash/RuleSet/Extra/Telegram/Telegram.yaml
+    interval: 86400
+  Streaming:
+    type: http
+    behavior: classical
+    path: ./RuleSet/StreamingMedia/Streaming.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Streaming.yaml
+    interval: 86400
+  Global:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Global.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Global.yaml
+    interval: 86400
+  GlobalMedia:
+    type: http
+    behavior: classical
+    path: ./GlobalMedia/GlobalMedia.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/GlobalMedia/GlobalMedia.yaml
+    interval: 86400
+  Speedtest:
+    type: http
+    behavior: classical
+    path: ./Speedtest/Speedtest.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Speedtest/Speedtest.yaml
+    interval: 86400
+  Apple:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Global.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Global.yaml
+    interval: 86400
+  China:
+    type: http
+    behavior: classical
+    path: ./Clash/Apple/Apple.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Apple/Apple.yaml
+    interval: 86400
+rules:
+- RULE-SET,Unbreak,DIRECT
+- RULE-SET,Advertising,REJECT
+- RULE-SET,Hijacking,REJECT
+- RULE-SET,Privacy,REJECT
+- RULE-SET,Tiktok,🎵Tiktok
+- RULE-SET,Netflix,🖥Netflix
+- RULE-SET,Disney,🎆Disney
+- RULE-SET,Youtube,📺Youtube
+- RULE-SET,Paypal,🇺🇸US
+- RULE-SET,Telegram,📞Telegram
+- RULE-SET,Apple,🍎Apple
+- RULE-SET,Global,🐷Proxy
+- RULE-SET,GlobalMedia,🐷Proxy
+- RULE-SET,Streaming,🐷Proxy
+- RULE-SET,Speedtest,✈️Speedtest
+- RULE-SET,China,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+- IP-CIDR,224.0.0.0/4,DIRECT
+- IP-CIDR,fe80::/10,DIRECT
+- IP-CIDR,119.28.28.28/32,DIRECT
+- IP-CIDR,182.254.116.0/24,DIRECT
+- GEOIP,CN,DIRECT
+- Final,🌵Final
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
